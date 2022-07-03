@@ -33,6 +33,13 @@ extension GameWorker: GameWorkerLogic {
         let positionSplit = position.components(separatedBy: ".")
         guard let playedRow = Int(positionSplit[0]), let playedColumn = Int(positionSplit[1]) else { return }
         
+        // Check if position already played.
+        guard board[playedRow][playedColumn] == "" else {
+            let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
+            handler(gameInfo)
+            return
+        }
+        
         // Add Player Move to the Board.
         addMoveToBoard(row: playedRow, column: playedColumn)
         

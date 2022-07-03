@@ -59,6 +59,20 @@ class GameWorkerTests: XCTestCase {
         
         XCTAssertNotNil(gameInfoResult)
     }
+    
+    // MARK: INVALID MOVES
+    
+    func test_givenWorker_whenPlayIsCalled_OnAlreadyPlayedPosition_thenNothingIsReturned() {
+        let _ = playMoveOnSut(position: 1)
+        let gameInfoResult = playMoveOnSut(position: 1)
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(gameInfoResult.tileIdentifer, nil)
+        XCTAssertEqual(gameInfoResult.infoLabelText, nil)
+        XCTAssertEqual(gameInfoResult.infoLabelBackground, nil)
+        XCTAssertEqual(gameInfoResult.tileText, nil)
+    }
 
 }
 
