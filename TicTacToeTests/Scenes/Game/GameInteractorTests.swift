@@ -12,7 +12,7 @@ class GameInteractorTests: XCTestCase {
     // MARK: Subject under test
     
     private var sut: GameInteractor!
-    private var output: GameInteractionOutputSpy!
+    private var presenter: GamePresenterSpy!
     private var worker: GameWorkerSpy!
     
     // MARK: Test lifecycle
@@ -21,9 +21,9 @@ class GameInteractorTests: XCTestCase {
         super.setUp()
         
         sut = GameInteractor()
-        output = GameInteractionOutputSpy()
+        presenter = GamePresenterSpy()
         worker = GameWorkerSpy()
-        sut.output = output
+        sut.presenter = presenter
         sut.worker = worker
     }
     
@@ -59,7 +59,7 @@ class GameInteractorTests: XCTestCase {
         
         waitForExpectations(timeout: 0.1)
         
-        XCTAssertTrue(output.presentGameMoveCalled)
+        XCTAssertTrue(presenter.presentGameMoveCalled)
     }
     
     func test_givenInteractor_whenTryToReset_AndWorkerReturnsValue_thenPresenterIsCalled() {
@@ -72,7 +72,7 @@ class GameInteractorTests: XCTestCase {
         
         waitForExpectations(timeout: 0.1)
         
-        XCTAssertTrue(output.presentResetCalled)
+        XCTAssertTrue(presenter.presentResetCalled)
     }
     
     func test_givenInteractor_whenTryToPlay_andWorkerReturnsValue_thenDataIsPassedToOutput() {
@@ -85,7 +85,7 @@ class GameInteractorTests: XCTestCase {
         
         waitForExpectations(timeout: 0.1)
         
-        XCTAssertEqual(output.gameInfoMock, gameInfo)
+        XCTAssertEqual(presenter.gameInfoMock, gameInfo)
     }
     
     func test_givenInteractor_whenTryToReset_andWorkerReturnsValue_thenDataIsPassedToOutput() {
@@ -98,12 +98,12 @@ class GameInteractorTests: XCTestCase {
         
         waitForExpectations(timeout: 0.1)
         
-        XCTAssertEqual(output.gameInfoMock, gameInfo)
+        XCTAssertEqual(presenter.gameInfoMock, gameInfo)
     }
 
 }
 
-private final class GameInteractionOutputSpy: GameInteractorOutput {
+private final class GamePresenterSpy: GamePresenterInput {
     var gameInfoMock: GameInfo!
     
     var presentGameMoveCalled = false

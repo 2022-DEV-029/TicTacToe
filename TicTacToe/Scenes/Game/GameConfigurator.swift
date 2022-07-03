@@ -21,7 +21,11 @@ final class DefaultGameConfigurator: GameConfigurator {
     @discardableResult
     func configured(_ vc: GameViewController) -> GameViewController {
         sceneFactory.configurator = self
+        let worker = GameWorker()
         let interactor = GameInteractor()
+        let presenter = GamePresenter()
+        interactor.presenter = presenter
+        interactor.worker = worker
         vc.interactor = interactor
         return vc
     }
