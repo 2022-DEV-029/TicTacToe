@@ -99,6 +99,22 @@ class GameWorkerTests: XCTestCase {
         XCTAssertEqual(gameInfoResult.infoLabelBackground, nil)
         XCTAssertEqual(gameInfoResult.tileText, nil)
     }
+    
+    func test_givenWorker_whenPlayIsCalled_AfterUserWon_thenShouldReturnNothing() {
+        let _ = playMoveOnSut(position: 0)
+        let _ = playMoveOnSut(position: 3)
+        let _ = playMoveOnSut(position: 1)
+        let _ = playMoveOnSut(position: 5)
+        let _ = playMoveOnSut(position: 2)
+        let gameInfoResultFinalMove = playMoveOnSut(position: 8)
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(gameInfoResultFinalMove.tileIdentifer, nil)
+        XCTAssertEqual(gameInfoResultFinalMove.infoLabelText, nil)
+        XCTAssertEqual(gameInfoResultFinalMove.infoLabelBackground, nil)
+        XCTAssertEqual(gameInfoResultFinalMove.tileText, nil)
+    }
 
 }
 

@@ -41,6 +41,13 @@ extension GameWorker: GameWorkerLogic {
             return
         }
         
+        // No more moves if the game is won
+        guard status != .won else {
+            let gameInfo = getGameInfoForInvalidMoves()
+            handler(gameInfo)
+            return
+        }
+        
         // Check if position already played.
         guard board[playedRow][playedColumn] == "" else {
             let gameInfo = getGameInfoForInvalidMoves()
