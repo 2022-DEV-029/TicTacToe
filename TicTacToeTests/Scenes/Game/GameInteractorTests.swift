@@ -9,12 +9,19 @@ import XCTest
 
 class GameInteractorTests: XCTestCase {
 
+    // MARK: Subject under test
+    
     private var sut: GameInteractor!
+    private var output: GameInteractionOutputSpy!
+    
+    // MARK: Test lifecycle
     
     override func setUp() {
         super.setUp()
         
         sut = GameInteractor()
+        output = GameInteractionOutputSpy()
+        sut.output = output
     }
     
     override func tearDown() {
@@ -22,5 +29,22 @@ class GameInteractorTests: XCTestCase {
         
         super.tearDown()
     }
+    
+    // MARK: Test Output
+    
+    func test_givenInteractor_whenTryToPlay_thenPresenterIsCalled() {
+        sut.playAMove(positionIdentifer: 1)
+        
+        XCTAssertTrue(output.presentGameMoveCalled)
+    }
 
 }
+
+private final class GameInteractionOutputSpy: GameInteractorOutput {
+    var presentGameMoveCalled = false
+    
+    func presentGameMove() {
+        presentGameMoveCalled = true
+    }
+}
+
