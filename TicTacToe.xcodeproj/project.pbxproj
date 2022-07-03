@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		188716CF2872149D0091780B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188716CE2872149D0091780B /* AppDelegate.swift */; };
 		188716D12872149D0091780B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188716D02872149D0091780B /* SceneDelegate.swift */; };
-		188716D32872149D0091780B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188716D22872149D0091780B /* ViewController.swift */; };
-		188716D62872149D0091780B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188716D42872149D0091780B /* Main.storyboard */; };
 		188716D82872149E0091780B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188716D72872149E0091780B /* Assets.xcassets */; };
 		188716DB2872149E0091780B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188716D92872149E0091780B /* LaunchScreen.storyboard */; };
 		188716E62872149E0091780B /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188716E52872149E0091780B /* TicTacToeTests.swift */; };
 		188716F02872149E0091780B /* TicTacToeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188716EF2872149E0091780B /* TicTacToeUITests.swift */; };
 		188716F22872149E0091780B /* TicTacToeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188716F12872149E0091780B /* TicTacToeUITestsLaunchTests.swift */; };
+		18871701287215730091780B /* GameViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871700287215730091780B /* GameViewControllerTests.swift */; };
+		18871706287217600091780B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871704287217600091780B /* GameViewController.swift */; };
+		18871707287217600091780B /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18871705287217600091780B /* GameViewController.xib */; };
+		1887170A287217820091780B /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871709287217820091780B /* SceneFactory.swift */; };
+		1887170B287217850091780B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871704287217600091780B /* GameViewController.swift */; };
+		1887170D287217A00091780B /* GameConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887170C287217A00091780B /* GameConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +43,6 @@
 		188716CB2872149D0091780B /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188716CE2872149D0091780B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188716D02872149D0091780B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		188716D22872149D0091780B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		188716D52872149D0091780B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		188716D72872149E0091780B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		188716DA2872149E0091780B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		188716DC2872149E0091780B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +51,11 @@
 		188716EB2872149E0091780B /* TicTacToeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188716EF2872149E0091780B /* TicTacToeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeUITests.swift; sourceTree = "<group>"; };
 		188716F12872149E0091780B /* TicTacToeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		18871700287215730091780B /* GameViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerTests.swift; sourceTree = "<group>"; };
+		18871704287217600091780B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		18871705287217600091780B /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		18871709287217820091780B /* SceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
+		1887170C287217A00091780B /* GameConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +106,10 @@
 		188716CD2872149D0091780B /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				18871708287217700091780B /* Factories */,
+				188717022872174B0091780B /* Scenes */,
 				188716CE2872149D0091780B /* AppDelegate.swift */,
 				188716D02872149D0091780B /* SceneDelegate.swift */,
-				188716D22872149D0091780B /* ViewController.swift */,
-				188716D42872149D0091780B /* Main.storyboard */,
 				188716D72872149E0091780B /* Assets.xcassets */,
 				188716D92872149E0091780B /* LaunchScreen.storyboard */,
 				188716DC2872149E0091780B /* Info.plist */,
@@ -113,6 +120,7 @@
 		188716E42872149E0091780B /* TicTacToeTests */ = {
 			isa = PBXGroup;
 			children = (
+				188716FE287215490091780B /* Scenes */,
 				188716E52872149E0091780B /* TicTacToeTests.swift */,
 			);
 			path = TicTacToeTests;
@@ -125,6 +133,48 @@
 				188716F12872149E0091780B /* TicTacToeUITestsLaunchTests.swift */,
 			);
 			path = TicTacToeUITests;
+			sourceTree = "<group>";
+		};
+		188716FE287215490091780B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				188716FF287215520091780B /* Game */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		188716FF287215520091780B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				18871700287215730091780B /* GameViewControllerTests.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		188717022872174B0091780B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				18871703287217520091780B /* Game */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		18871703287217520091780B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				18871704287217600091780B /* GameViewController.swift */,
+				18871705287217600091780B /* GameViewController.xib */,
+				1887170C287217A00091780B /* GameConfigurator.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		18871708287217700091780B /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				18871709287217820091780B /* SceneFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +283,7 @@
 			files = (
 				188716DB2872149E0091780B /* LaunchScreen.storyboard in Resources */,
 				188716D82872149E0091780B /* Assets.xcassets in Resources */,
-				188716D62872149D0091780B /* Main.storyboard in Resources */,
+				18871707287217600091780B /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +308,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				188716D32872149D0091780B /* ViewController.swift in Sources */,
+				1887170D287217A00091780B /* GameConfigurator.swift in Sources */,
 				188716CF2872149D0091780B /* AppDelegate.swift in Sources */,
+				18871706287217600091780B /* GameViewController.swift in Sources */,
 				188716D12872149D0091780B /* SceneDelegate.swift in Sources */,
+				1887170A287217820091780B /* SceneFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +320,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18871701287215730091780B /* GameViewControllerTests.swift in Sources */,
+				1887170B287217850091780B /* GameViewController.swift in Sources */,
 				188716E62872149E0091780B /* TicTacToeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +351,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		188716D42872149D0091780B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				188716D52872149D0091780B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		188716D92872149E0091780B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -441,7 +487,6 @@
 				INFOPLIST_FILE = TicTacToe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,7 +513,6 @@
 				INFOPLIST_FILE = TicTacToe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
