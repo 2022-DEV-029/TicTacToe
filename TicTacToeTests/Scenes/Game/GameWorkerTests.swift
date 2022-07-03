@@ -64,6 +64,25 @@ class GameWorkerTests: XCTestCase {
         XCTAssertEqual(gameInfoResultFinalMove.tileText, "X")
     }
     
+    func test_givenWorker_whenPlayIsCalled_WithDrawMove_thenDrawValuesAreReturned() {
+        let _ = playMoveOnSut(position: 0)
+        let _ = playMoveOnSut(position: 4)
+        let _ = playMoveOnSut(position: 6)
+        let _ = playMoveOnSut(position: 3)
+        let _ = playMoveOnSut(position: 5)
+        let _ = playMoveOnSut(position: 7)
+        let _ = playMoveOnSut(position: 1)
+        let _ = playMoveOnSut(position: 2)
+        let gameInfoResultFinalMove = playMoveOnSut(position: 8)
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(gameInfoResultFinalMove.tileIdentifer, 8)
+        XCTAssertEqual(gameInfoResultFinalMove.infoLabelText, "It's a Draw!!")
+        XCTAssertEqual(gameInfoResultFinalMove.infoLabelBackground, .yellow)
+        XCTAssertEqual(gameInfoResultFinalMove.tileText, "X")
+    }
+    
     // MARK: RESET
     
     func test_givenWorker_whenResetIsCalled_thenGameInfoIsReturned() {

@@ -26,4 +26,5 @@ enum GameStatusInfo {
     case start
     case ongoing
     case won
+    case draw
 }

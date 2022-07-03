@@ -58,6 +58,15 @@ extension GameWorker: GameWorkerLogic {
         // Add Player Move to the Board.
         addMoveToBoard(row: playedRow, column: playedColumn)
         
+        // Win is not possible until atleast the total moves are 5.
+        if !atleast5TotalMovesmade() {
+            status = .ongoing
+            let gameInfo = getGameInfo(tileIdentifer: positionIdentifer)
+            handler(gameInfo)
+            toggleCurrentPlayer()
+            return
+        }
+        
         // Check for win
         let DidPlayerWin = checkResult(row: playedRow, column: playedColumn)
         
@@ -66,7 +75,12 @@ extension GameWorker: GameWorkerLogic {
             status = .won
             let gameInfo = getGameInfo(tileIdentifer: positionIdentifer)
             handler(gameInfo)
-        }  else {
+        } else if !DidPlayerWin && allPositionsPlayed() {
+            // Draw case
+            status = .draw
+            let gameInfo = getGameInfo(tileIdentifer: positionIdentifer)
+            handler(gameInfo)
+        } else {
             // Game still ongoing case
             status = .ongoing
             let gameInfo = getGameInfo(tileIdentifer: positionIdentifer)
@@ -139,6 +153,18 @@ private extension GameWorker {
             return "O"
         }
     }
+    
+    private func atleast5TotalMovesmade() -> Bool {
+        let flattenedBoard = board.joined()
+        let emptyPostions = flattenedBoard.filter({ $0 == "" })
+        return emptyPostions.count < 5
+    }
+    
+    private func allPositionsPlayed() -> Bool {
+        let flattenedBoard = board.joined()
+        let emptyPostions = flattenedBoard.filter({ $0 == "" })
+        return emptyPostions.count == 0
+    }
 }
 
 
@@ -192,6 +218,8 @@ private extension GameWorker {
         switch status {
         case .won:
             return "Player \(getPlayerName()) has Won the Game!!"
+        case .draw:
+            return "It's a Draw!!"
         case .start:
             return "Player X turn"
         case .ongoing:
@@ -203,6 +231,8 @@ private extension GameWorker {
         switch status {
         case .won:
             return .green
+        case .draw:
+            return .yellow
         case .start:
             return .clear
         case .ongoing:
