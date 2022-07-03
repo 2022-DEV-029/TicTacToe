@@ -49,6 +49,21 @@ class GameWorkerTests: XCTestCase {
         XCTAssertEqual(gameInfoResult.tileText, "X")
     }
     
+    func test_givenWorker_whenPlayIsCalled_WithWinForPlayerX_thenWinForPlayerXIsReturned() {
+        let _ = playMoveOnSut(position: 0)
+        let _ = playMoveOnSut(position: 3)
+        let _ = playMoveOnSut(position: 1)
+        let _ = playMoveOnSut(position: 5)
+        let gameInfoResultFinalMove = playMoveOnSut(position: 2)
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(gameInfoResultFinalMove.tileIdentifer, 2)
+        XCTAssertEqual(gameInfoResultFinalMove.infoLabelText, "Player X has Won the Game!!")
+        XCTAssertEqual(gameInfoResultFinalMove.infoLabelBackground, .green)
+        XCTAssertEqual(gameInfoResultFinalMove.tileText, "X")
+    }
+    
     // MARK: RESET
     
     func test_givenWorker_whenResetIsCalled_thenGameInfoIsReturned() {
@@ -65,6 +80,17 @@ class GameWorkerTests: XCTestCase {
     func test_givenWorker_whenPlayIsCalled_OnAlreadyPlayedPosition_thenNothingIsReturned() {
         let _ = playMoveOnSut(position: 1)
         let gameInfoResult = playMoveOnSut(position: 1)
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(gameInfoResult.tileIdentifer, nil)
+        XCTAssertEqual(gameInfoResult.infoLabelText, nil)
+        XCTAssertEqual(gameInfoResult.infoLabelBackground, nil)
+        XCTAssertEqual(gameInfoResult.tileText, nil)
+    }
+    
+    func test_givenWorker_whenPlayIsCalled_OnInvalidPosition_thenNothingIsReturned() {
+        let gameInfoResult = playMoveOnSut(position: 10)
         
         waitForExpectations(timeout: 0.1)
         
