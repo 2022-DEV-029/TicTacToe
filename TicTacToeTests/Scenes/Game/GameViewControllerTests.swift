@@ -13,7 +13,7 @@ final class GameViewControllerTests: XCTestCase {
     // MARK: Subject under test
     
     var sut: GameViewController!
-    private var output: GameViewControllerOutputSpy!
+    private var interactor: GameInteractorSpy!
     
     // MARK: Test lifecycle
     
@@ -25,7 +25,7 @@ final class GameViewControllerTests: XCTestCase {
     
     override func tearDown() {
         sut = nil
-        output = nil
+        interactor = nil
       
       super.tearDown()
     }
@@ -34,8 +34,8 @@ final class GameViewControllerTests: XCTestCase {
     
     func setupGameViewController() {
         sut = GameViewController()
-        output = GameViewControllerOutputSpy()
-        sut.output = output
+        interactor = GameInteractorSpy()
+        sut.interactor = interactor
         sut.loadView()
     }
     
@@ -55,19 +55,19 @@ final class GameViewControllerTests: XCTestCase {
     
     // MARK: UI Interaction
     
-    func test_givenScene_whenATileButtonIsTapped_thenOutputIsCalled() {
+    func test_givenScene_whenATileButtonIsTapped_thenInteractorIsCalled() {
         tapTileButton(1)
-        XCTAssertTrue(output.playAMoveCalled)
+        XCTAssertTrue(interactor.playAMoveCalled)
     }
     
-    func test_givenScene_whenReseetButtonIsTapped_thenOutputIsCalled() {
+    func test_givenScene_whenReseetButtonIsTapped_thenInteractorIsCalled() {
         tapResetButton()
-        XCTAssertTrue(output.resetCalled)
+        XCTAssertTrue(interactor.resetCalled)
     }
 
 }
 
-private final class GameViewControllerOutputSpy: GameViewControlerOutput {
+private final class GameInteractorSpy: GameInteractorInput {
     var playAMoveCalled = false
     
     func playAMove(positionIdentifer: Int) {

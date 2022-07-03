@@ -19,7 +19,7 @@ final class GameViewController: UIViewController {
     @IBOutlet private var tileButtons: [UIButton]!
     @IBOutlet private weak var infoLabel: UILabel!
     
-    var output: GameViewControlerOutput?
+    var interactor: GameInteractorInput?
     
     // MARK: Life cycle
     
@@ -31,11 +31,11 @@ final class GameViewController: UIViewController {
     // MARK: Actions
 
     @IBAction func tileButtonTapped(_ sender: UIButton) {
-        output?.playAMove(positionIdentifer: sender.tag)
+        interactor?.playAMove(positionIdentifer: sender.tag)
     }
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
-        output?.reset()
+        interactor?.reset()
     }
     
 }
