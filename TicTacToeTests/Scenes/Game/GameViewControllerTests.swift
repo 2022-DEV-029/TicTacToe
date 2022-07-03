@@ -24,7 +24,8 @@ final class GameViewControllerTests: XCTestCase {
     }
     
     override func tearDown() {
-      sut = nil
+        sut = nil
+        output = nil
       
       super.tearDown()
     }
