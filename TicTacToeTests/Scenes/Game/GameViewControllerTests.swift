@@ -88,6 +88,36 @@ final class GameViewControllerTests: XCTestCase {
         XCTAssertEqual(labelText, "Player X Move")
         XCTAssertEqual(labelBackgroundColor, .clear)
     }
+    
+    // MARK: Output UI for Failure
+    
+    func test_givenScene_whenDisplayGameMoveIsCalledWithNilValue_thenNotUIUpdates() {
+        let gameInfo = GameInfo(tileIdentifer: 1, infoLabelText: "Player O Move", infoLabelBackground: .clear, tileText: "X")
+        sut.displayGameMove(gameInfo: gameInfo)
+        
+        let gameInfoInvalid = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
+        sut.displayGameMove(gameInfo: gameInfoInvalid)
+        
+        let labelText = getInfoLabelTextAndBackground().0
+        let labelBackgroundColor = getInfoLabelTextAndBackground().1
+        
+        XCTAssertEqual(labelText, "Player O Move")
+        XCTAssertEqual(labelBackgroundColor, .clear)
+    }
+    
+    func test_givenScene_wheResetIsCalledWithNilValue_thenNotUIUpdates() {
+        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: nil)
+        sut.reset(gameInfo: gameInfo)
+        
+        let gameInfoInvalid = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
+        sut.reset(gameInfo: gameInfoInvalid)
+        
+        let labelText = getInfoLabelTextAndBackground().0
+        let labelBackgroundColor = getInfoLabelTextAndBackground().1
+        
+        XCTAssertEqual(labelText, "Player X Move")
+        XCTAssertEqual(labelBackgroundColor, .clear)
+    }
 
 }
 
