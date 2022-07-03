@@ -64,6 +64,19 @@ final class GameViewControllerTests: XCTestCase {
         tapResetButton()
         XCTAssertTrue(interactor.resetCalled)
     }
+    
+    // MARK: Output UI Success
+    
+    func test_givenScene_whenDisplayGameMoveIsCalled_thenUIUpdates() {
+        let gameInfo = GameInfo(tileIdentifer: 1, infoLabelText: "Player O Move", infoLabelBackground: .clear, tileText: "X")
+        sut.displayGameMove(gameInfo: gameInfo)
+        
+        let labelText = getInfoLabelTextAndBackground().0
+        let labelBackgroundColor = getInfoLabelTextAndBackground().1
+        
+        XCTAssertEqual(labelText, "Player O Move")
+        XCTAssertEqual(labelBackgroundColor, .clear)
+    }
 
 }
 
@@ -119,6 +132,21 @@ private extension GameViewControllerTests {
                 }
             }
         }
+    }
+    
+    func getInfoLabelTextAndBackground() -> (String, UIColor) {
+        let mirror = Mirror.init(reflecting: sut.view as Any)
+        for child in mirror.children {
+            if let view = child.value as? UIView {
+                for subview in view.subviews {
+                    print("subview", subview)
+                    if let label = subview as? UILabel {
+                        return (label.text ?? "", label.backgroundColor ?? .brown)
+                    }
+                }
+            }
+        }
+        return ("", .brown);
     }
 }
 

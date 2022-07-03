@@ -39,3 +39,31 @@ final class GameViewController: UIViewController {
     }
     
 }
+
+extension GameViewController: GamePresenterOutput {
+    func displayGameMove(gameInfo: GameInfo) {
+        guard let tileIdentifer = gameInfo.tileIdentifer, let tileText = gameInfo.tileText, let infoLabelText = gameInfo.infoLabelText, let infoLabelBackground = gameInfo.infoLabelBackground else {
+            return
+        }
+        let tile = getButtonsFromList(tileIdentifer)
+        tile.titleLabel?.textColor = .black
+        tile.setTitleColor(.black, for: .normal)
+        tile.setTitle(tileText, for: .normal)
+        tile.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        
+        infoLabel.text = infoLabelText
+        infoLabel.backgroundColor = infoLabelBackground
+    }
+    
+    func reset(gameInfo: GameInfo) {
+        
+    }
+    
+    
+}
+
+private extension GameViewController {
+    private func getButtonsFromList(_ identifier: Int) -> UIButton {
+        return tileButtons.first(where: { $0.tag == identifier  })!
+    }
+}
