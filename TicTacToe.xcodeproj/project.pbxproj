@@ -20,6 +20,9 @@
 		1887170A287217820091780B /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871709287217820091780B /* SceneFactory.swift */; };
 		1887170B287217850091780B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871704287217600091780B /* GameViewController.swift */; };
 		1887170D287217A00091780B /* GameConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887170C287217A00091780B /* GameConfigurator.swift */; };
+		18871711287222DA0091780B /* GameInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871710287222DA0091780B /* GameInteractorTests.swift */; };
+		18871713287223130091780B /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871712287223130091780B /* GameInteractor.swift */; };
+		18871714287223130091780B /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871712287223130091780B /* GameInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,8 @@
 		18871705287217600091780B /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		18871709287217820091780B /* SceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
 		1887170C287217A00091780B /* GameConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigurator.swift; sourceTree = "<group>"; };
+		18871710287222DA0091780B /* GameInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractorTests.swift; sourceTree = "<group>"; };
+		18871712287223130091780B /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				18871700287215730091780B /* GameViewControllerTests.swift */,
+				18871710287222DA0091780B /* GameInteractorTests.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -165,6 +171,7 @@
 				18871704287217600091780B /* GameViewController.swift */,
 				18871705287217600091780B /* GameViewController.xib */,
 				1887170C287217A00091780B /* GameConfigurator.swift */,
+				18871712287223130091780B /* GameInteractor.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -308,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18871713287223130091780B /* GameInteractor.swift in Sources */,
 				1887170D287217A00091780B /* GameConfigurator.swift in Sources */,
 				188716CF2872149D0091780B /* AppDelegate.swift in Sources */,
 				18871706287217600091780B /* GameViewController.swift in Sources */,
@@ -320,6 +328,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18871711287222DA0091780B /* GameInteractorTests.swift in Sources */,
+				18871714287223130091780B /* GameInteractor.swift in Sources */,
 				18871701287215730091780B /* GameViewControllerTests.swift in Sources */,
 				1887170B287217850091780B /* GameViewController.swift in Sources */,
 				188716E62872149E0091780B /* TicTacToeTests.swift in Sources */,
