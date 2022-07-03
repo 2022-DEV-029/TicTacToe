@@ -58,6 +58,11 @@ final class GameViewControllerTests: XCTestCase {
         tapTileButton(1)
         XCTAssertTrue(output.playAMoveCalled)
     }
+    
+    func test_givenScene_whenReseetButtonIsTapped_thenOutputIsCalled() {
+        tapResetButton()
+        XCTAssertTrue(output.resetCalled)
+    }
 
 }
 
@@ -66,6 +71,12 @@ private final class GameViewControllerOutputSpy: GameViewControlerOutput {
     
     func playAMove(positionIdentifer: Int) {
         playAMoveCalled = true
+    }
+    
+    var resetCalled = false
+    
+    func reset() {
+        resetCalled = true
     }
 }
 
@@ -89,6 +100,20 @@ private extension GameViewControllerTests {
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    
+    func tapResetButton() {
+        let mirror = Mirror.init(reflecting: sut.view as Any)
+        for child in mirror.children {
+            if let view = child.value as? UIView {
+                for subview in view.subviews {
+                    print("subview", subview)
+                    if let button = subview as? UIButton, button.titleLabel?.text == "Reset" {
+                        button.sendActions(for: .touchUpInside)
                     }
                 }
             }
