@@ -56,7 +56,16 @@ extension GameViewController: GamePresenterOutput {
     }
     
     func reset(gameInfo: GameInfo) {
+        guard let infoLabelText = gameInfo.infoLabelText, let infoLabelBackground = gameInfo.infoLabelBackground else {
+            return
+        }
         
+        tileButtons.forEach { tileButton in
+            tileButton.backgroundColor = .white
+            tileButton.setTitle("", for: .normal)
+        }
+        infoLabel.text = infoLabelText
+        infoLabel.backgroundColor = infoLabelBackground
     }
     
     

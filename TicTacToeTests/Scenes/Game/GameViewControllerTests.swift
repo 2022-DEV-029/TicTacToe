@@ -77,6 +77,17 @@ final class GameViewControllerTests: XCTestCase {
         XCTAssertEqual(labelText, "Player O Move")
         XCTAssertEqual(labelBackgroundColor, .clear)
     }
+    
+    func test_givenScene_wheResetIsCalled_thenUIUpdates() {
+        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: nil)
+        sut.reset(gameInfo: gameInfo)
+        
+        let labelText = getInfoLabelTextAndBackground().0
+        let labelBackgroundColor = getInfoLabelTextAndBackground().1
+        
+        XCTAssertEqual(labelText, "Player X Move")
+        XCTAssertEqual(labelBackgroundColor, .clear)
+    }
 
 }
 
