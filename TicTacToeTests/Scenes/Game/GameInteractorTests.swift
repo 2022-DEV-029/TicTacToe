@@ -51,7 +51,8 @@ class GameInteractorTests: XCTestCase {
     
     func test_givenInteractor_whenTryToPlay_AndWorkerReturnsValue_thenPresenterIsCalled() {
         let expectation = expectation(description: "Wait for worker play() to return")
-        worker.handlerMock = GameInfo()
+        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
+        worker.handlerMock = gameInfo
         sut.playAMove(positionIdentifer: 1)
         
         expectation.fulfill()
@@ -63,7 +64,8 @@ class GameInteractorTests: XCTestCase {
     
     func test_givenInteractor_whenTryToReset_AndWorkerReturnsValue_thenPresenterIsCalled() {
         let expectation = expectation(description: "Wait for worker reset() to return")
-        worker.handlerMock = GameInfo()
+        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
+        worker.handlerMock = gameInfo
         sut.reset()
         
         expectation.fulfill()
@@ -75,7 +77,7 @@ class GameInteractorTests: XCTestCase {
     
     func test_givenInteractor_whenTryToPlay_andWorkerReturnsValue_thenDataIsPassedToOutput() {
         let expectation = expectation(description: "Wait for worker play() to return")
-        let gameInfo = GameInfo()
+        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
         worker.handlerMock = gameInfo
         sut.playAMove(positionIdentifer: 1)
         
@@ -88,7 +90,7 @@ class GameInteractorTests: XCTestCase {
     
     func test_givenInteractor_whenTryToReset_andWorkerReturnsValue_thenDataIsPassedToOutput() {
         let expectation = expectation(description: "Wait for worker reset() to return")
-        let gameInfo = GameInfo()
+        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
         worker.handlerMock = gameInfo
         sut.reset()
         

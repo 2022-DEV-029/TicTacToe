@@ -38,6 +38,17 @@ class GameWorkerTests: XCTestCase {
         XCTAssertNotNil(gameInfoResult)
     }
     
+    func test_givenWorker_whenPlayIsCalled_thenFirstMoveIsMarkedAndNextMoveIsReturned() {
+        let gameInfoResult = playMoveOnSut(position: 1)
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(gameInfoResult.tileIdentifer, 1)
+        XCTAssertEqual(gameInfoResult.infoLabelText, "Player O turn")
+        XCTAssertEqual(gameInfoResult.infoLabelBackground, .clear)
+        XCTAssertEqual(gameInfoResult.tileText, "X")
+    }
+    
     // MARK: RESET
     
     func test_givenWorker_whenResetIsCalled_thenGameInfoIsReturned() {
