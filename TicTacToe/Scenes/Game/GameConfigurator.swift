@@ -24,6 +24,7 @@ final class DefaultGameConfigurator: GameConfigurator {
         let worker = GameWorker()
         let interactor = GameInteractor()
         let presenter = GamePresenter()
+        presenter.viewController = vc
         interactor.presenter = presenter
         interactor.worker = worker
         vc.interactor = interactor
