@@ -10,12 +10,12 @@ import XCTest
 
 final class GameViewControllerTests: XCTestCase {
 
-    // MARK: - Subject under test
+    // MARK: Subject under test
     
     var sut: GameViewController!
     private var output: GameViewControllerOutputSpy!
     
-    // MARK: - Test lifecycle
+    // MARK: Test lifecycle
     
     override func setUp() {
       super.setUp()
@@ -30,7 +30,7 @@ final class GameViewControllerTests: XCTestCase {
       super.tearDown()
     }
     
-    // MARK: - Test setup
+    // MARK: Test setup
     
     func setupGameViewController() {
         sut = GameViewController()
