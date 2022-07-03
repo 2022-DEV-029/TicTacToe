@@ -7,7 +7,7 @@
 
 import XCTest
 
-class GameInteractorTests: XCTestCase {
+final class GameInteractorTests: XCTestCase {
 
     // MARK: Subject under test
     

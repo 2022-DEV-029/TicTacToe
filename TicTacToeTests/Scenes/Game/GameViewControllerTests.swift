@@ -171,7 +171,6 @@ private extension GameViewControllerTests {
         for child in mirror.children {
             if let view = child.value as? UIView {
                 for subview in view.subviews {
-                    print("subview", subview)
                     if let button = subview as? UIButton, button.titleLabel?.text == "Reset" {
                         button.sendActions(for: .touchUpInside)
                     }
@@ -185,7 +184,6 @@ private extension GameViewControllerTests {
         for child in mirror.children {
             if let view = child.value as? UIView {
                 for subview in view.subviews {
-                    print("subview", subview)
                     if let label = subview as? UILabel {
                         return (label.text ?? "", label.backgroundColor ?? .brown)
                     }
