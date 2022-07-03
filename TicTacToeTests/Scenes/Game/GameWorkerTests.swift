@@ -85,13 +85,15 @@ class GameWorkerTests: XCTestCase {
     
     // MARK: RESET
     
-    func test_givenWorker_whenResetIsCalled_thenGameInfoIsReturned() {
-        let gameInfoResult = resetGameOnSut()
+    func test_givenWorker_whenResetIsCalled_thenInitialValuesAreReturned() {
+        let gameInfo = resetGameOnSut()
         
         waitForExpectations(timeout: 0.1)
         
-        
-        XCTAssertNotNil(gameInfoResult)
+        XCTAssertEqual(gameInfo.tileIdentifer, nil)
+        XCTAssertEqual(gameInfo.infoLabelText, "Player X turn")
+        XCTAssertEqual(gameInfo.infoLabelBackground, .clear)
+        XCTAssertEqual(gameInfo.tileText, nil)
     }
     
     // MARK: INVALID MOVES

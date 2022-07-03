@@ -90,7 +90,10 @@ extension GameWorker: GameWorkerLogic {
     }
     
     func reset(handler: ((GameInfo) -> Void)) {
-        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
+        board = [["","",""],["","",""],["","",""]]
+        currentPlayer = .playerX
+        status = .start
+        let gameInfo = getGameInfo(tileIdentifer: nil, forReset: true)
         handler(gameInfo)
     }
     
