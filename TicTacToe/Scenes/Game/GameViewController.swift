@@ -27,7 +27,7 @@ final class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        interactor?.reset()
     }
     
     // MARK: Actions

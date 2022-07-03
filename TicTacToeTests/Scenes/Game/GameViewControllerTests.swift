@@ -45,6 +45,11 @@ final class GameViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.isViewLoaded)
     }
     
+    func test_givenScene_whenViewDidLoad_thenResetIsCalled() {
+        sut.viewDidLoad()
+        XCTAssertTrue(interactor.resetCalled)
+    }
+    
     // MARK: UI Elements
     
     func test_givenScene_whenViewIsLoaded_thenShouldShowUIElements() {
