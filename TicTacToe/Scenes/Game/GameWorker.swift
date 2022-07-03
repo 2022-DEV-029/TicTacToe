@@ -18,11 +18,13 @@ final class GameWorker {
 
 extension GameWorker: GameWorkerLogic {
     func play(positionIdentifer: Int, handler: ((GameInfo) -> Void)) {
-        
+        let gameInfo = GameInfo()
+        handler(gameInfo)
     }
     
     func reset(handler: ((GameInfo) -> Void)) {
-        
+        let gameInfo = GameInfo()
+        handler(gameInfo)
     }
     
     

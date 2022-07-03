@@ -27,6 +27,51 @@ class GameWorkerTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: SUCCESS MOVES
     
+    func test_givenWorker_whenPlayIsCalled_thenGameInfoIsReturned() {
+        let gameInfoResult = playMoveOnSut(position: 1)
+        
+        waitForExpectations(timeout: 0.1)
+        
+        
+        XCTAssertNotNil(gameInfoResult)
+    }
+    
+    // MARK: RESET
+    
+    func test_givenWorker_whenResetIsCalled_thenGameInfoIsReturned() {
+        let gameInfoResult = resetGameOnSut()
+        
+        waitForExpectations(timeout: 0.1)
+        
+        
+        XCTAssertNotNil(gameInfoResult)
+    }
 
+}
+
+private extension GameWorkerTests {
+    func playMoveOnSut(position: Int) -> GameInfo {
+        let expectation = expectation(description: "Wait for play() to return for move \(position)")
+        var gameInfoResult: GameInfo!
+        
+        sut.play(positionIdentifer: position) { gameInfo in
+            gameInfoResult = gameInfo
+            expectation.fulfill()
+        }
+        return gameInfoResult
+    }
+    
+    func resetGameOnSut() -> GameInfo {
+        let expectation = expectation(description: "Wait for reset() to return")
+        var gameInfoResult: GameInfo!
+        
+        sut.reset() { gameInfo in
+            gameInfoResult = gameInfo
+            expectation.fulfill()
+        }
+        return gameInfoResult
+    }
+    
 }
