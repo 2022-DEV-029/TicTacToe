@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias GameViewControlerInput = GamePresenterOutput
+
 protocol GameViewControlerOutput: AnyObject {
     func playAMove(positionIdentifer: Int)
     func reset()
@@ -40,7 +42,7 @@ final class GameViewController: UIViewController {
     
 }
 
-extension GameViewController: GamePresenterOutput {
+extension GameViewController: GameViewControlerInput {
     func displayGameMove(gameInfo: GameInfo) {
         guard let tileIdentifer = gameInfo.tileIdentifer, let tileText = gameInfo.tileText, let infoLabelText = gameInfo.infoLabelText, let infoLabelBackground = gameInfo.infoLabelBackground else {
             return
