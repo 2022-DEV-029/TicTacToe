@@ -10,3 +10,5 @@ import Foundation
 struct GameInfo {
     
 }
+
+extension GameInfo: Equatable {}

@@ -10,8 +10,8 @@ import Foundation
 typealias GameInteractorInput = GameViewControlerOutput
 
 protocol GameInteractorOutput {
-    func presentGameMove()
-    func presentReset()
+    func presentGameMove(gameInfo: GameInfo)
+    func presentReset(gameInfo: GameInfo)
 }
 
 final class GameInteractor {
@@ -22,15 +22,14 @@ final class GameInteractor {
 extension GameInteractor: GameInteractorInput {
     func playAMove(positionIdentifer: Int) {
         worker?.play(positionIdentifer: positionIdentifer, handler: { gameInfo in
-            output?.presentGameMove()
+            output?.presentGameMove(gameInfo: gameInfo)
         })
     }
     
     func reset() {
         worker?.reset(handler: { gameInfo in
-            output?.presentReset()
+            output?.presentReset(gameInfo: gameInfo)
         })
     }
 }
-
 

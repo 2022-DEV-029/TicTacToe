@@ -72,20 +72,50 @@ class GameInteractorTests: XCTestCase {
         
         XCTAssertTrue(output.presentResetCalled)
     }
+    
+    func test_givenInteractor_whenTryToPlay_andWorkerReturnsValue_thenDataIsPassedToOutput() {
+        let expectation = expectation(description: "Wait for worker play() to return")
+        let gameInfo = GameInfo()
+        worker.handlerMock = gameInfo
+        sut.playAMove(positionIdentifer: 1)
+        
+        expectation.fulfill()
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(output.gameInfoMock, gameInfo)
+    }
+    
+    func test_givenInteractor_whenTryToReset_andWorkerReturnsValue_thenDataIsPassedToOutput() {
+        let expectation = expectation(description: "Wait for worker reset() to return")
+        let gameInfo = GameInfo()
+        worker.handlerMock = gameInfo
+        sut.reset()
+        
+        expectation.fulfill()
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(output.gameInfoMock, gameInfo)
+    }
 
 }
 
 private final class GameInteractionOutputSpy: GameInteractorOutput {
+    var gameInfoMock: GameInfo!
+    
     var presentGameMoveCalled = false
     
-    func presentGameMove() {
+    func presentGameMove(gameInfo: GameInfo) {
         presentGameMoveCalled = true
+        gameInfoMock = gameInfo
     }
     
     var presentResetCalled = false
     
-    func presentReset() {
+    func presentReset(gameInfo: GameInfo) {
         presentResetCalled = true
+        gameInfoMock = gameInfo
     }
 }
 
