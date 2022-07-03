@@ -37,6 +37,12 @@ class GameInteractorTests: XCTestCase {
         
         XCTAssertTrue(output.presentGameMoveCalled)
     }
+    
+    func test_givenInteractor_whenTryToReset_thenPresenterIsCalled() {
+        sut.reset()
+        
+        XCTAssertTrue(output.presentResetCalled)
+    }
 
 }
 
@@ -45,6 +51,12 @@ private final class GameInteractionOutputSpy: GameInteractorOutput {
     
     func presentGameMove() {
         presentGameMoveCalled = true
+    }
+    
+    var presentResetCalled = false
+    
+    func presentReset() {
+        presentResetCalled = true
     }
 }
 

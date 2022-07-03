@@ -11,6 +11,7 @@ typealias GameInteractorInput = GameViewControlerOutput
 
 protocol GameInteractorOutput {
     func presentGameMove()
+    func presentReset()
 }
 
 final class GameInteractor {
@@ -23,7 +24,7 @@ extension GameInteractor: GameInteractorInput {
     }
     
     func reset() {
-        
+        output?.presentReset()
     }
 }
 
