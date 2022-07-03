@@ -12,3 +12,18 @@ protocol GameWorkerLogic {
     func reset(handler: ((GameInfo)->Void))
 }
 
+final class GameWorker {
+    
+}
+
+extension GameWorker: GameWorkerLogic {
+    func play(positionIdentifer: Int, handler: ((GameInfo) -> Void)) {
+        
+    }
+    
+    func reset(handler: ((GameInfo) -> Void)) {
+        
+    }
+    
+    
+}
