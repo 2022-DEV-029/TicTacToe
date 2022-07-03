@@ -28,6 +28,9 @@
 		18871719287227440091780B /* GameModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871718287227440091780B /* GameModels.swift */; };
 		1887171A287227440091780B /* GameModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18871718287227440091780B /* GameModels.swift */; };
 		1887171C28722B2C0091780B /* GameWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887171B28722B2C0091780B /* GameWorkerTests.swift */; };
+		1887171E287238590091780B /* GamePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887171D287238590091780B /* GamePresenterTests.swift */; };
+		18871720287238A20091780B /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887171F287238A20091780B /* GamePresenter.swift */; };
+		18871721287238A20091780B /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887171F287238A20091780B /* GamePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,8 @@
 		18871715287227290091780B /* GameWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWorker.swift; sourceTree = "<group>"; };
 		18871718287227440091780B /* GameModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModels.swift; sourceTree = "<group>"; };
 		1887171B28722B2C0091780B /* GameWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWorkerTests.swift; sourceTree = "<group>"; };
+		1887171D287238590091780B /* GamePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenterTests.swift; sourceTree = "<group>"; };
+		1887171F287238A20091780B /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +167,7 @@
 				18871700287215730091780B /* GameViewControllerTests.swift */,
 				18871710287222DA0091780B /* GameInteractorTests.swift */,
 				1887171B28722B2C0091780B /* GameWorkerTests.swift */,
+				1887171D287238590091780B /* GamePresenterTests.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -183,6 +189,7 @@
 				18871712287223130091780B /* GameInteractor.swift */,
 				18871715287227290091780B /* GameWorker.swift */,
 				18871718287227440091780B /* GameModels.swift */,
+				1887171F287238A20091780B /* GamePresenter.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -331,6 +338,7 @@
 				1887170D287217A00091780B /* GameConfigurator.swift in Sources */,
 				188716CF2872149D0091780B /* AppDelegate.swift in Sources */,
 				18871706287217600091780B /* GameViewController.swift in Sources */,
+				18871720287238A20091780B /* GamePresenter.swift in Sources */,
 				18871716287227290091780B /* GameWorker.swift in Sources */,
 				188716D12872149D0091780B /* SceneDelegate.swift in Sources */,
 				1887170A287217820091780B /* SceneFactory.swift in Sources */,
@@ -342,12 +350,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				18871711287222DA0091780B /* GameInteractorTests.swift in Sources */,
+				1887171E287238590091780B /* GamePresenterTests.swift in Sources */,
 				18871714287223130091780B /* GameInteractor.swift in Sources */,
 				18871701287215730091780B /* GameViewControllerTests.swift in Sources */,
 				18871717287227290091780B /* GameWorker.swift in Sources */,
 				1887171A287227440091780B /* GameModels.swift in Sources */,
 				1887170B287217850091780B /* GameViewController.swift in Sources */,
 				188716E62872149E0091780B /* TicTacToeTests.swift in Sources */,
+				18871721287238A20091780B /* GamePresenter.swift in Sources */,
 				1887171C28722B2C0091780B /* GameWorkerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
