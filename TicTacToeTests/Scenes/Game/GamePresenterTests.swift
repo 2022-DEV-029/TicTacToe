@@ -12,21 +12,21 @@ class GamePresenterTests: XCTestCase {
     // MARK: Subject under test
     
     private var sut: GamePresenter!
-    private var output: GamePresenterOutputSpy!
+    private var viewController: GamePresenterOutputSpy!
     
     // MARK: Test lifecycle
     
     override func setUp() {
         super.setUp()
         
-        output = GamePresenterOutputSpy()
+        viewController = GamePresenterOutputSpy()
         sut = GamePresenter()
-        sut.output = output
+        sut.viewController = viewController
     }
     
     override func tearDown() {
         sut = nil
-        output = nil
+        viewController = nil
         
         super.tearDown()
     }
@@ -34,27 +34,27 @@ class GamePresenterTests: XCTestCase {
     func test_givenPresenter_whenDiplayGameMoveCalled_thenVCsProperMethodInvoked() {
         sut.presentGameMove(gameInfo: GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil))
         
-        XCTAssertTrue(output.diplayGameMoveCalled.0)
+        XCTAssertTrue(viewController.diplayGameMoveCalled.0)
     }
     
     func test_givenPresenter_whenResetCalled_thenVCsProperMethodInvoked() {
         sut.presentReset(gameInfo: GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil))
     
-        XCTAssertTrue(output.resetCalled.0)
+        XCTAssertTrue(viewController.resetCalled.0)
     }
     
     func test_givenPresenter_whenDiplayGameMoveCalled_thenVCsProperArgumentsPassed() {
         let gameInfo = GameInfo(tileIdentifer: 1, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: "O")
         sut.presentGameMove(gameInfo: gameInfo)
         
-        XCTAssertEqual(output.diplayGameMoveCalled.1, gameInfo)
+        XCTAssertEqual(viewController.diplayGameMoveCalled.1, gameInfo)
     }
     
     func test_givenPresenter_whenResetCalled_thenVCsProperArgumentsPassed() {
         let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: nil)
         sut.presentReset(gameInfo: gameInfo)
     
-        XCTAssertEqual(output.resetCalled.1, gameInfo)
+        XCTAssertEqual(viewController.resetCalled.1, gameInfo)
     }
 
 }
