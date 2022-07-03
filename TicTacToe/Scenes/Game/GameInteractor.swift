@@ -16,15 +16,20 @@ protocol GameInteractorOutput {
 
 final class GameInteractor {
     var output: GameInteractorOutput?
+    var worker: GameWorkerLogic?
 }
 
 extension GameInteractor: GameInteractorInput {
     func playAMove(positionIdentifer: Int) {
-        output?.presentGameMove()
+        worker?.play(positionIdentifer: positionIdentifer, handler: { gameInfo in
+            output?.presentGameMove()
+        })
     }
     
     func reset() {
-        output?.presentReset()
+        worker?.reset(handler: { gameInfo in
+            output?.presentReset()
+        })
     }
 }
 
