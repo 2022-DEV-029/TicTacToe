@@ -42,18 +42,27 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title=""/>
+                                            <connections>
+                                                <action selector="tileButtonTapped:" destination="-1" eventType="touchUpInside" id="fZT-p9-nED"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5a-AD-Lgh">
                                             <rect key="frame" x="126.5" y="0.0" width="121" height="176"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title=""/>
+                                            <connections>
+                                                <action selector="tileButtonTapped:" destination="-1" eventType="touchUpInside" id="5oK-N1-hpd"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6a-cH-0Us">
                                             <rect key="frame" x="252.5" y="0.0" width="121.5" height="176"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title=""/>
+                                            <connections>
+                                                <action selector="tileButtonTapped:" destination="-1" eventType="touchUpInside" id="ffT-jb-M87"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -64,16 +73,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="121.5" height="176"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <connections>
+                                                <action selector="tileButtonTapped:" destination="-1" eventType="touchUpInside" id="ic1-7U-prA"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVe-5E-z6D">
                                             <rect key="frame" x="126.5" y="0.0" width="121" height="176"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <connections>
+                                                <action selector="tileButtonTapped:" destination="-1" eventType="touchUpInside" id="aoM-7w-2fJ"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdt-CS-jeb">
                                             <rect key="frame" x="252.5" y="0.0" width="121.5" height="176"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <connections>
+                                                <action selector="tileButtonTapped:" destination="-1" eventType="touchUpInside" id="vs0-MY-DlZ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -84,16 +102,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="121.5" height="176"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <connections>
+                                                <action selector="tileButtonTapped:" destination="-1" eventType="touchUpInside" id="RBY-q0-tCl"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oq9-7w-cRQ">
                                             <rect key="frame" x="126.5" y="0.0" width="121" height="176"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <connections>
+                                                <action selector="tileButtonTapped:" destination="-1" eventType="touchUpInside" id="IcX-sd-WXj"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpE-7u-G9J">
                                             <rect key="frame" x="252.5" y="0.0" width="121.5" height="176"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <connections>
+                                                <action selector="tileButtonTapped:" destination="-1" eventType="touchUpInside" id="WhP-nP-Ls5"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
