@@ -7,8 +7,11 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+final class GameViewController: UIViewController {
 
+    @IBOutlet private var tileButtons: [UIButton]!
+    @IBOutlet private weak var infoLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
