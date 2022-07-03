@@ -15,16 +15,16 @@ protocol GamePresenterOutput: AnyObject {
 }
 
 final class GamePresenter {
-    weak var viewController: GamePresenterOutput?
+    weak var output: GamePresenterOutput?
 }
 
 extension GamePresenter: GamePresenterInput {
     func presentGameMove(gameInfo: GameInfo) {
-        viewController?.displayGameMove(gameInfo: gameInfo)
+        output?.displayGameMove(gameInfo: gameInfo)
     }
     
     func presentReset(gameInfo: GameInfo) {
-        viewController?.reset(gameInfo: gameInfo)
+        output?.reset(gameInfo: gameInfo)
     }
 }
 
