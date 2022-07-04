@@ -44,9 +44,8 @@ final class GameWorkerTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
         
         XCTAssertEqual(gameInfoResult.tileIdentifer, 1)
-        XCTAssertEqual(gameInfoResult.infoLabelText, "Player O turn")
-        XCTAssertEqual(gameInfoResult.infoLabelBackground, .clear)
-        XCTAssertEqual(gameInfoResult.tileText, "X")
+        XCTAssertEqual(gameInfoResult.currentPlayer, .playerX)
+        XCTAssertEqual(gameInfoResult.status, .ongoing)
     }
     
     func test_givenWorker_whenPlayIsCalled_WithWinForPlayerX_thenWinForPlayerXIsReturned() {
@@ -59,9 +58,8 @@ final class GameWorkerTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
         
         XCTAssertEqual(gameInfoResultFinalMove.tileIdentifer, 2)
-        XCTAssertEqual(gameInfoResultFinalMove.infoLabelText, "Player X has Won the Game!!")
-        XCTAssertEqual(gameInfoResultFinalMove.infoLabelBackground, .green)
-        XCTAssertEqual(gameInfoResultFinalMove.tileText, "X")
+        XCTAssertEqual(gameInfoResultFinalMove.currentPlayer, .playerX)
+        XCTAssertEqual(gameInfoResultFinalMove.status, .won)
     }
     
     func test_givenWorker_whenPlayIsCalled_WithDrawMove_thenDrawValuesAreReturned() {
@@ -78,9 +76,8 @@ final class GameWorkerTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
         
         XCTAssertEqual(gameInfoResultFinalMove.tileIdentifer, 8)
-        XCTAssertEqual(gameInfoResultFinalMove.infoLabelText, "It's a Draw!!")
-        XCTAssertEqual(gameInfoResultFinalMove.infoLabelBackground, .yellow)
-        XCTAssertEqual(gameInfoResultFinalMove.tileText, "X")
+        XCTAssertEqual(gameInfoResultFinalMove.currentPlayer, .playerX)
+        XCTAssertEqual(gameInfoResultFinalMove.status, .draw)
     }
     
     // MARK: RESET
@@ -91,9 +88,8 @@ final class GameWorkerTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
         
         XCTAssertEqual(gameInfo.tileIdentifer, nil)
-        XCTAssertEqual(gameInfo.infoLabelText, "Player X turn")
-        XCTAssertEqual(gameInfo.infoLabelBackground, .clear)
-        XCTAssertEqual(gameInfo.tileText, nil)
+        XCTAssertEqual(gameInfo.currentPlayer, .playerX)
+        XCTAssertEqual(gameInfo.status, .start)
     }
     
     // MARK: INVALID MOVES
@@ -105,9 +101,8 @@ final class GameWorkerTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
         
         XCTAssertEqual(gameInfoResult.tileIdentifer, nil)
-        XCTAssertEqual(gameInfoResult.infoLabelText, nil)
-        XCTAssertEqual(gameInfoResult.infoLabelBackground, nil)
-        XCTAssertEqual(gameInfoResult.tileText, nil)
+        XCTAssertEqual(gameInfoResult.currentPlayer, .playerO)
+        XCTAssertEqual(gameInfoResult.status, .invalidMove)
     }
     
     func test_givenWorker_whenPlayIsCalled_OnInvalidPosition_thenNothingIsReturned() {
@@ -116,9 +111,8 @@ final class GameWorkerTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
         
         XCTAssertEqual(gameInfoResult.tileIdentifer, nil)
-        XCTAssertEqual(gameInfoResult.infoLabelText, nil)
-        XCTAssertEqual(gameInfoResult.infoLabelBackground, nil)
-        XCTAssertEqual(gameInfoResult.tileText, nil)
+        XCTAssertEqual(gameInfoResult.currentPlayer, .playerX)
+        XCTAssertEqual(gameInfoResult.status, .invalidMove)
     }
     
     func test_givenWorker_whenPlayIsCalled_AfterUserWon_thenShouldReturnNothing() {
@@ -132,9 +126,8 @@ final class GameWorkerTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
         
         XCTAssertEqual(gameInfoResultFinalMove.tileIdentifer, nil)
-        XCTAssertEqual(gameInfoResultFinalMove.infoLabelText, nil)
-        XCTAssertEqual(gameInfoResultFinalMove.infoLabelBackground, nil)
-        XCTAssertEqual(gameInfoResultFinalMove.tileText, nil)
+        XCTAssertEqual(gameInfoResultFinalMove.currentPlayer, .playerX)
+        XCTAssertEqual(gameInfoResultFinalMove.status, .won)
     }
 
 }

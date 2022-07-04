@@ -43,8 +43,8 @@ final class GameViewController: UIViewController {
 }
 
 extension GameViewController: GameViewControlerInput {
-    func displayGameMove(gameInfo: GameInfo) {
-        guard let tileIdentifer = gameInfo.tileIdentifer, let tileText = gameInfo.tileText, let infoLabelText = gameInfo.infoLabelText, let infoLabelBackground = gameInfo.infoLabelBackground else {
+    func displayGameMove(gameUI: GameUI) {
+        guard let tileIdentifer = gameUI.tileIdentifer, let tileText = gameUI.tileText, let infoLabelText = gameUI.infoLabelText, let infoLabelBackground = gameUI.infoLabelBackground else {
             return
         }
         let tile = getButtonsFromList(tileIdentifer)
@@ -57,8 +57,8 @@ extension GameViewController: GameViewControlerInput {
         infoLabel.backgroundColor = infoLabelBackground
     }
     
-    func reset(gameInfo: GameInfo) {
-        guard let infoLabelText = gameInfo.infoLabelText, let infoLabelBackground = gameInfo.infoLabelBackground else {
+    func reset(gameUI: GameUI) {
+        guard let infoLabelText = gameUI.infoLabelText, let infoLabelBackground = gameUI.infoLabelBackground else {
             return
         }
         

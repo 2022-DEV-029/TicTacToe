@@ -73,8 +73,8 @@ final class GameViewControllerTests: XCTestCase {
     // MARK: Output UI Success
     
     func test_givenScene_whenDisplayGameMoveIsCalled_thenUIUpdates() {
-        let gameInfo = GameInfo(tileIdentifer: 1, infoLabelText: "Player O Move", infoLabelBackground: .clear, tileText: "X")
-        sut.displayGameMove(gameInfo: gameInfo)
+        let gameUI = GameUI(tileIdentifer: 1, infoLabelText: "Player O Move", infoLabelBackground: .clear, tileText: "X")
+        sut.displayGameMove(gameUI: gameUI)
         
         let labelText = getInfoLabelTextAndBackground().0
         let labelBackgroundColor = getInfoLabelTextAndBackground().1
@@ -84,8 +84,8 @@ final class GameViewControllerTests: XCTestCase {
     }
     
     func test_givenScene_wheResetIsCalled_thenUIUpdates() {
-        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: nil)
-        sut.reset(gameInfo: gameInfo)
+        let gameUI = GameUI(tileIdentifer: nil, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: nil)
+        sut.reset(gameUI: gameUI)
         
         let labelText = getInfoLabelTextAndBackground().0
         let labelBackgroundColor = getInfoLabelTextAndBackground().1
@@ -97,11 +97,11 @@ final class GameViewControllerTests: XCTestCase {
     // MARK: Output UI for Failure
     
     func test_givenScene_whenDisplayGameMoveIsCalledWithNilValue_thenNotUIUpdates() {
-        let gameInfo = GameInfo(tileIdentifer: 1, infoLabelText: "Player O Move", infoLabelBackground: .clear, tileText: "X")
-        sut.displayGameMove(gameInfo: gameInfo)
+        let gameUI = GameUI(tileIdentifer: 1, infoLabelText: "Player O Move", infoLabelBackground: .clear, tileText: "X")
+        sut.displayGameMove(gameUI: gameUI)
         
-        let gameInfoInvalid = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
-        sut.displayGameMove(gameInfo: gameInfoInvalid)
+        let gameUIInvalid = GameUI(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
+        sut.displayGameMove(gameUI: gameUIInvalid)
         
         let labelText = getInfoLabelTextAndBackground().0
         let labelBackgroundColor = getInfoLabelTextAndBackground().1
@@ -111,11 +111,11 @@ final class GameViewControllerTests: XCTestCase {
     }
     
     func test_givenScene_wheResetIsCalledWithNilValue_thenNotUIUpdates() {
-        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: nil)
-        sut.reset(gameInfo: gameInfo)
+        let gameUI = GameUI(tileIdentifer: nil, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: nil)
+        sut.reset(gameUI: gameUI)
         
-        let gameInfoInvalid = GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
-        sut.reset(gameInfo: gameInfoInvalid)
+        let gameUIInvalid = GameUI(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
+        sut.reset(gameUI: gameUIInvalid)
         
         let labelText = getInfoLabelTextAndBackground().0
         let labelBackgroundColor = getInfoLabelTextAndBackground().1

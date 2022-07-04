@@ -10,9 +10,8 @@ import UIKit
 
 struct GameInfo {
     let tileIdentifer: Int?
-    let infoLabelText: String?
-    let infoLabelBackground: UIColor?
-    let tileText: String?
+    let status: GameStatusInfo
+    let currentPlayer: Player
 }
 
 extension GameInfo: Equatable {}
@@ -27,4 +26,14 @@ enum GameStatusInfo {
     case ongoing
     case won
     case draw
+    case invalidMove
 }
+
+struct GameUI {
+    let tileIdentifer: Int?
+    let infoLabelText: String?
+    let infoLabelBackground: UIColor?
+    let tileText: String?
+}
+
+extension GameUI: Equatable {}
