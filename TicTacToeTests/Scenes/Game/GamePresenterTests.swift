@@ -31,6 +31,8 @@ final class GamePresenterTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: Test Output is invoked
+    
     func test_givenPresenter_whenDiplayGameMoveCalled_thenVCsProperMethodInvoked() {
         let gameInfo = GameInfo(tileIdentifer: nil, status: .start, currentPlayer: .playerX)
         sut.presentGameMove(gameInfo: gameInfo)
@@ -44,6 +46,8 @@ final class GamePresenterTests: XCTestCase {
     
         XCTAssertTrue(viewController.resetCalled.0)
     }
+    
+    // MARK: Test Output with right data
     
     func test_givenPresenter_whenDiplayGameMoveCalledWithStart_thenVCsProperArgumentsPassed() {
         let gameInfo = GameInfo(tileIdentifer: nil, status: .start, currentPlayer: .playerX)
