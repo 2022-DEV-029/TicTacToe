@@ -32,11 +32,17 @@ This TicTacToe project is made following clean swift architecture and test drive
 iPhone 12 screenshot:
 
 Initial:
+
+
 <img width="367" alt="Initial" src="https://user-images.githubusercontent.com/108480340/177108047-20a61dec-9b56-4274-9006-62cbd12fa8e7.png">
 
 Win:
+
+
 <img width="363" alt="Win" src="https://user-images.githubusercontent.com/108480340/177108070-77a533dc-cbae-4b71-a859-e8a500a137d6.png">
 
 Draw:
+
+
 <img width="348" alt="Draw" src="https://user-images.githubusercontent.com/108480340/177108100-7a82fd18-03ef-4286-b01f-5ef9b920e7ad.png">
 
