@@ -46,3 +46,8 @@ Draw:
 
 <img width="348" alt="Draw" src="https://user-images.githubusercontent.com/108480340/177108100-7a82fd18-03ef-4286-b01f-5ef9b920e7ad.png">
 
+## References
+
+- https://github.com/stephane-genicot/katas/blob/master/TicTacToe.md
+- https://en.wikipedia.org/wiki/Tic-tac-toe
+- https://clean-swift.com/test-driven-development-using-clean-architecture-part-1
