@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol GameWorkerLogic {
     func play(positionIdentifer: Int, handler: ((GameInfo)->Void))
@@ -26,32 +25,37 @@ final class GameWorker {
 
 extension GameWorker: GameWorkerLogic {
     func play(positionIdentifer: Int, handler: ((GameInfo) -> Void)) {
+        // No more moves if the game is won
+        guard status != .won else {
+            handler(getGameInfo(tileIdentifer: nil))
+            return
+        }
+        
+        // No more moves if the game is ended as a draw
+        guard status != .draw else {
+            handler(getGameInfo(tileIdentifer: nil))
+            return
+        }
+        
         // Get the position played
         guard let position = getPositionFromUITag(tagValue: positionIdentifer) else {
-            let gameInfo = getGameInfoForInvalidMoves()
-            handler(gameInfo)
+            status = .invalidMove
+            handler(getGameInfo(tileIdentifer: nil))
             return
         }
         
         // Get the row and column of the position
         let positionSplit = position.components(separatedBy: ".")
         guard let playedRow = Int(positionSplit[0]), let playedColumn = Int(positionSplit[1]) else {
-            let gameInfo = getGameInfoForInvalidMoves()
-            handler(gameInfo)
-            return
-        }
-        
-        // No more moves if the game is won
-        guard status != .won else {
-            let gameInfo = getGameInfoForInvalidMoves()
-            handler(gameInfo)
+            status = .invalidMove
+            handler(getGameInfo(tileIdentifer: nil))
             return
         }
         
         // Check if position already played.
         guard board[playedRow][playedColumn] == "" else {
-            let gameInfo = getGameInfoForInvalidMoves()
-            handler(gameInfo)
+            status = .invalidMove
+            handler(getGameInfo(tileIdentifer: nil))
             return
         }
         
@@ -93,7 +97,7 @@ extension GameWorker: GameWorkerLogic {
         board = [["","",""],["","",""],["","",""]]
         currentPlayer = .playerX
         status = .start
-        let gameInfo = getGameInfo(tileIdentifer: nil, forReset: true)
+        let gameInfo = getGameInfo(tileIdentifer: nil)
         handler(gameInfo)
     }
     
@@ -139,7 +143,6 @@ private extension GameWorker {
 
 private extension GameWorker {
     // Game utilities
-    
     private func toggleCurrentPlayer() {
         currentPlayer = currentPlayer == .playerX ? .playerO : .playerX
     }
@@ -149,7 +152,7 @@ private extension GameWorker {
     }
     
     private func getPlayerName() -> String {
-        switch (currentPlayer) {
+        switch currentPlayer {
         case .playerX:
             return "X"
         case .playerO:
@@ -199,48 +202,8 @@ private extension GameWorker {
 }
 
 private extension GameWorker {
-    
-    private func getGameInfoForInvalidMoves() -> GameInfo {
-        return GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
-    }
-    
-    private func getGameInfo(tileIdentifer: Int?, forReset: Bool = false) -> GameInfo {
-        return GameInfo(tileIdentifer: tileIdentifer, infoLabelText: getInfoLabelText(status: status), infoLabelBackground: getInfoLabelBackgroundColor(status: status), tileText: forReset ? nil : getPlayerName())
-    }
-    
-    private func getNextPlayerName() -> String {
-        switch (currentPlayer) {
-        case .playerX:
-            return "O"
-        case .playerO:
-            return "X"
-        }
-    }
-    
-    private func getInfoLabelText(status: GameStatusInfo) -> String {
-        switch status {
-        case .won:
-            return "Player \(getPlayerName()) has Won the Game!!"
-        case .draw:
-            return "It's a Draw!!"
-        case .start:
-            return "Player X turn"
-        case .ongoing:
-            return "Player \(getNextPlayerName()) turn"
-        }
-    }
-    
-    private func getInfoLabelBackgroundColor(status: GameStatusInfo) -> UIColor {
-        switch status {
-        case .won:
-            return .green
-        case .draw:
-            return .yellow
-        case .start:
-            return .clear
-        case .ongoing:
-            return .clear
-        }
+    private func getGameInfo(tileIdentifer: Int?) -> GameInfo {
+        return GameInfo(tileIdentifer: tileIdentifer, status: status, currentPlayer: currentPlayer)
     }
 }
 

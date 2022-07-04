@@ -32,42 +32,106 @@ final class GamePresenterTests: XCTestCase {
     }
     
     func test_givenPresenter_whenDiplayGameMoveCalled_thenVCsProperMethodInvoked() {
-        sut.presentGameMove(gameInfo: GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil))
+        let gameInfo = GameInfo(tileIdentifer: nil, status: .start, currentPlayer: .playerX)
+        sut.presentGameMove(gameInfo: gameInfo)
         
         XCTAssertTrue(viewController.diplayGameMoveCalled.0)
     }
     
     func test_givenPresenter_whenResetCalled_thenVCsProperMethodInvoked() {
-        sut.presentReset(gameInfo: GameInfo(tileIdentifer: nil, infoLabelText: nil, infoLabelBackground: nil, tileText: nil))
+        let gameInfo = GameInfo(tileIdentifer: nil, status: .start, currentPlayer: .playerX)
+        sut.presentReset(gameInfo: gameInfo)
     
         XCTAssertTrue(viewController.resetCalled.0)
     }
     
-    func test_givenPresenter_whenDiplayGameMoveCalled_thenVCsProperArgumentsPassed() {
-        let gameInfo = GameInfo(tileIdentifer: 1, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: "O")
+    func test_givenPresenter_whenDiplayGameMoveCalledWithStart_thenVCsProperArgumentsPassed() {
+        let gameInfo = GameInfo(tileIdentifer: nil, status: .start, currentPlayer: .playerX)
         sut.presentGameMove(gameInfo: gameInfo)
         
-        XCTAssertEqual(viewController.diplayGameMoveCalled.1, gameInfo)
+        let gameUI = getGameUIFromGameInfoForStart(gameInfo: gameInfo)
+        
+        XCTAssertEqual(viewController.diplayGameMoveCalled.1, gameUI)
+    }
+    
+    func test_givenPresenter_whenDiplayGameMoveCalledWithOngoing_thenVCsProperArgumentsPassed() {
+        let gameInfo = GameInfo(tileIdentifer: 1, status: .ongoing, currentPlayer: .playerO)
+        sut.presentGameMove(gameInfo: gameInfo)
+        
+        let gameUI = getGameUIFromGameInfoForOngoing(gameInfo: gameInfo)
+        
+        XCTAssertEqual(viewController.diplayGameMoveCalled.1, gameUI)
+    }
+    
+    func test_givenPresenter_whenDiplayGameMoveCalledWithWin_thenVCsProperArgumentsPassed() {
+        let gameInfo = GameInfo(tileIdentifer: 1, status: .won, currentPlayer: .playerX)
+        sut.presentGameMove(gameInfo: gameInfo)
+        
+        let gameUI = getGameUIFromGameInfoForWin(gameInfo: gameInfo)
+        
+        XCTAssertEqual(viewController.diplayGameMoveCalled.1, gameUI)
+    }
+    
+    func test_givenPresenter_whenDiplayGameMoveCalledWithDraw_thenVCsProperArgumentsPassed() {
+        let gameInfo = GameInfo(tileIdentifer: nil, status: .draw, currentPlayer: .playerX)
+        sut.presentGameMove(gameInfo: gameInfo)
+        
+        let gameUI = getGameUIFromGameInfoForDraw(gameInfo: gameInfo)
+        
+        XCTAssertEqual(viewController.diplayGameMoveCalled.1, gameUI)
+    }
+    
+    func test_givenPresenter_whenDiplayGameMoveCalledWithInvalid_thenVCsProperArgumentsPassed() {
+        let gameInfo = GameInfo(tileIdentifer: nil, status: .invalidMove, currentPlayer: .playerO)
+        sut.presentGameMove(gameInfo: gameInfo)
+        
+        let gameUI = getGameUIFromGameInfoForInvalid(gameInfo: gameInfo)
+        
+        XCTAssertEqual(viewController.diplayGameMoveCalled.1, gameUI)
     }
     
     func test_givenPresenter_whenResetCalled_thenVCsProperArgumentsPassed() {
-        let gameInfo = GameInfo(tileIdentifer: nil, infoLabelText: "Player X Move", infoLabelBackground: .clear, tileText: nil)
+        let gameInfo = GameInfo(tileIdentifer: nil, status: .start, currentPlayer: .playerX)
         sut.presentReset(gameInfo: gameInfo)
     
-        XCTAssertEqual(viewController.resetCalled.1, gameInfo)
+        let gameUI = getGameUIFromGameInfoForStart(gameInfo: gameInfo)
+        
+        XCTAssertEqual(viewController.resetCalled.1, gameUI)
     }
 
 }
 
-private final class GamePresenterOutputSpy: GamePresenterOutput {
-    var diplayGameMoveCalled: (Bool, GameInfo)!
-    var resetCalled: (Bool, GameInfo)!
-    
-    func displayGameMove(gameInfo: GameInfo) {
-        diplayGameMoveCalled = (true, gameInfo)
+private extension GamePresenterTests {
+    func getGameUIFromGameInfoForStart(gameInfo: GameInfo) -> GameUI {
+        return GameUI(tileIdentifer: gameInfo.tileIdentifer, infoLabelText: "Player X turn", infoLabelBackground: .clear, tileText: nil)
     }
-    func reset(gameInfo: GameInfo) {
-        resetCalled = (true, gameInfo)
+    
+    func getGameUIFromGameInfoForOngoing(gameInfo: GameInfo) -> GameUI {
+        return GameUI(tileIdentifer: gameInfo.tileIdentifer, infoLabelText: "Player X turn", infoLabelBackground: .clear, tileText: "O")
+    }
+    
+    func getGameUIFromGameInfoForWin(gameInfo: GameInfo) -> GameUI {
+        return GameUI(tileIdentifer: gameInfo.tileIdentifer, infoLabelText: "Player X has Won the Game!!", infoLabelBackground: .green, tileText: "X")
+    }
+    
+    func getGameUIFromGameInfoForDraw(gameInfo: GameInfo) -> GameUI {
+        return GameUI(tileIdentifer: gameInfo.tileIdentifer, infoLabelText: "It's a Draw!!", infoLabelBackground: .yellow, tileText: "X")
+    }
+    
+    func getGameUIFromGameInfoForInvalid(gameInfo: GameInfo) -> GameUI {
+        return GameUI(tileIdentifer: gameInfo.tileIdentifer, infoLabelText: nil, infoLabelBackground: nil, tileText: nil)
+    }
+}
+
+private final class GamePresenterOutputSpy: GamePresenterOutput {
+    var diplayGameMoveCalled: (Bool, GameUI)!
+    var resetCalled: (Bool, GameUI)!
+    
+    func displayGameMove(gameUI: GameUI) {
+        diplayGameMoveCalled = (true, gameUI)
+    }
+    func reset(gameUI: GameUI) {
+        resetCalled = (true, gameUI)
     }
 }
 
