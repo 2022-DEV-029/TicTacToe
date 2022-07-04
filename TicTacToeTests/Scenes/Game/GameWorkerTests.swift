@@ -129,6 +129,27 @@ final class GameWorkerTests: XCTestCase {
         XCTAssertEqual(gameInfoResultFinalMove.currentPlayer, .playerX)
         XCTAssertEqual(gameInfoResultFinalMove.status, .won)
     }
+    
+    func test_givenWorker_whenPlayIsCalled_WithDraw_thenShouldReturnNothing() {
+        let _ = playMoveOnSut(position: 0)
+        let _ = playMoveOnSut(position: 4)
+        let _ = playMoveOnSut(position: 6)
+        let _ = playMoveOnSut(position: 3)
+        let _ = playMoveOnSut(position: 5)
+        let _ = playMoveOnSut(position: 7)
+        let _ = playMoveOnSut(position: 1)
+        let _ = playMoveOnSut(position: 2)
+        let _ = playMoveOnSut(position: 8)
+        
+        let _ = playMoveOnSut(position: 1)
+        let gameInfoResultFinalMove = playMoveOnSut(position: 7)
+        
+        waitForExpectations(timeout: 0.1)
+        
+        XCTAssertEqual(gameInfoResultFinalMove.tileIdentifer, nil)
+        XCTAssertEqual(gameInfoResultFinalMove.currentPlayer, .playerX)
+        XCTAssertEqual(gameInfoResultFinalMove.status, .draw)
+    }
 
 }
 
